@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+const int MAX_SIZE = 100; // Максимальный размер стека
+
+class Stack {
+private:
+    char data[MAX_SIZE];
+    int topIndex;
+    
+public:
+    Stack() : topIndex(-1) {} // Конструктор
+    
+    // Добавление элемента
+    void push(char value) {
+        if (topIndex >= MAX_SIZE - 1) {
+            cout << "Стек переполнен!" << endl;
+            return;
+        }
+        data[++topIndex] = value;
+    }
+    
+    // Извлечение элемента
+    char pop() {
+        if (isEmpty()) {
+            cout << "Стек пуст!" << endl;
+            return '\0';
+        }
+        return data[topIndex--];
+    }
+    
+    // Проверка на пустоту
+    bool isEmpty() {
+        return topIndex == -1;
+    }
+    
+    // Вывод содержимого стека
+    void print() {
+        cout << "Стек: ";
+        for (int i = 0; i <= topIndex; i++) {
+            cout << data[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    Stack stack;
+    
+    // Добавляем элементы
+    stack.push('a');
+    stack.push('b');
+    stack.push('c');
+    
+    // Выводим содержимое
+    stack.print();
+    
+    // Извлекаем элементы (LIFO)
+    cout << "Извлекаем элементы:" << endl;
+    while (!stack.isEmpty()) {
+        cout << "Извлечен: " << stack.pop() << endl;
+    }
+
+    return 0;
+}
