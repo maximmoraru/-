@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Исходный массив
+    vector<char> original = {'a', '1', 'b', '2', 'c', '3'};
+    
+    // Векторы для результатов
+    vector<char> letters;
+    vector<char> numbers;
+    
+    // Разделяем элементы
+    for (size_t i = 0; i < original.size(); i++) {
+        if (i % 2 == 0) {
+            letters.push_back(original[i]);
+        } else {
+            numbers.push_back(original[i]);
+        }
+    }
+    
+    // Очищаем исходный вектор
+    original.clear();
+    
+    // Выводим результаты
+    cout << "Буквы: ";
+    for (char c : letters) cout << c << " ";
+    cout << endl;
+    
+    cout << "Цифры: ";
+    for (char c : numbers) cout << c << " ";
+    cout << endl;
+
+    return 0;
+}
