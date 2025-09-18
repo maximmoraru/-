@@ -1,0 +1,22 @@
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        // Создаем стек
+        Stack<String> stack = new Stack<>();
+        
+        // Добавляем элементы
+        stack.push("a");
+        stack.push("b");
+        stack.push("c");
+        
+        // Выводим содержимое стека
+        System.out.println("Весь стек: " + stack);
+        
+        // Извлекаем элементы (LIFO)
+        System.out.println("Извлекаем элементы:");
+        while (!stack.isEmpty()) {
+            System.out.println("Извлечен: " + stack.pop());
+        }
+    }
+}
