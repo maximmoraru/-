@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class ListSplitExample {
+    public static void main(String[] args) {
+        // Исходный список
+        ArrayList<String> originalList = new ArrayList<>(Arrays.asList("a", "1", "b", "2", "c", "3"));
+        
+        // Списки для результатов
+        ArrayList<String> lettersList = new ArrayList<>();
+        ArrayList<String> numbersList = new ArrayList<>();
+        
+        // Разделяем элементы: четные индексы - буквы, нечетные - цифры
+        for (int i = 0; i < originalList.size(); i++) {
+            if (i % 2 == 0) {
+                lettersList.add(originalList.get(i));
+            } else {
+                numbersList.add(originalList.get(i));
+            }
+        }
+        
+        // Очищаем исходный список (аналог del в Python)
+        originalList.clear();
+        
+        // Выводим результаты
+        System.out.println("Список букв: " + lettersList);
+        System.out.println("Список цифр: " + numbersList);
+    }
+}
